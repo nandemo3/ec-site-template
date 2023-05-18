@@ -1,27 +1,25 @@
-import React from 'react';
+import type { ProductType } from './ProductCard'
 
-import Grid from '@mui/material/Grid';
-import ProductCard from './ProductCard';
+import Grid from '@mui/material/Grid'
 
-import { ProductType } from './ProductCard';
+import ProductCard from './ProductCard'
 
-type HorizontalScrollViewType = {
-    products: ProductType[]
+interface HorizontalScrollViewType {
+  products: ProductType[]
 }
 
-
-const HorizontalScrollView = ({products}: HorizontalScrollViewType) => {
+function HorizontalScrollView({ products }: HorizontalScrollViewType) {
   return (
-    <Grid sx={{ flexGrow: 1, overflow: "scroll" }} container spacing={2}>
-        {products.map((product, index) => {
-            return (
-                <Grid item key={index}>
-                    <ProductCard {...product}/>
-                </Grid>
-            )
-        })}
+    <Grid sx={{ flexGrow: 1, overflow: 'scroll' }} container spacing={2}>
+      {products.map((product, index) => {
+        return (
+          <Grid item key={index}>
+            <ProductCard {...product}/>
+          </Grid>
+        )
+      })}
     </Grid>
-  );
+  )
 }
 
-export default HorizontalScrollView;
+export default HorizontalScrollView

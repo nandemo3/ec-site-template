@@ -1,3 +1,75 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": "@antfu",
+  "ignorePatterns": [
+    "**/out/*",
+    "**/dist/*"
+  ],
+  "plugins": [
+    "react-hooks"
+  ],
+  "rules": {
+    // ref: https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/order.md
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "type",
+          "builtin",
+          "external",
+          "internal",
+          [
+            "parent",
+            "index",
+            "sibling"
+          ],
+          "object"
+        ],
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": false
+        },
+        "pathGroupsExcludedImportTypes": [
+          "@mui"
+        ],
+        "pathGroups": [
+          {
+            "pattern": "@mui",
+            "group": "builtin",
+            "position": "after"
+          },
+          // {
+          //   "pattern": "@/hooks/**",
+          //   "group": "index",
+          //   "position": "after"
+          // },
+          // {
+          //   "pattern": "@/components/**",
+          //   "group": "index",
+          //   "position": "before"
+          // },
+          {
+            "pattern": "@/**",
+            "group": "internal",
+            "position": "after"
+          }
+        ],
+        "newlines-between": "always"
+      }
+    ],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": [
+      "warn",
+      {
+        "additionalHooks": "(useRecoilCallback|useRecoilTransaction_UNSTABLE)"
+      }
+    ],
+    "space-before-function-paren": [
+      "error",
+      {
+        "anonymous": "always",
+        "named": "never",
+        "asyncArrow": "always"
+      }
+    ]
+  }
 }
