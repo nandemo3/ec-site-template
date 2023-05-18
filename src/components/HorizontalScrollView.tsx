@@ -10,7 +10,7 @@ interface HorizontalScrollViewType {
 
 function HorizontalScrollView({ products }: HorizontalScrollViewType) {
   return (
-    <Grid sx={{ flexGrow: 1, overflow: 'scroll' }} container spacing={2}>
+    <Grid sx={{ flexGrow: 1, overflow: 'scroll', flexWrap: 'noWrap' }} container spacing={2}>
       {products.map((product, index) => {
         return (
           <Grid item key={index}>

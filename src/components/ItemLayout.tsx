@@ -1,6 +1,6 @@
 import type { FC, ReactNode } from 'react'
 
-import { Box, Typography } from '@mui/material'
+import { Box, Link, Typography } from '@mui/material'
 
 interface ItemLayoutProps {
   title: string
@@ -9,9 +9,12 @@ interface ItemLayoutProps {
 
 const ItemLayout: FC<ItemLayoutProps> = ({ title, children }) => {
   return (
-    <Box sx={{ mx: 2, my: 8 }}>
-      <Box sx={{ mx: 2, my: 4 }}>
-        <Typography variant="h5" >{title}</Typography>
+    <Box sx={{ mx: 16, my: 8 }}>
+      <Box sx={{ mx: 2, my: 4, display: 'flex', alignItems: 'center' }}>
+        <Typography variant="h5" sx={{ color: '#222' }}>{title}</Typography>
+        <Link href="/" underline="hover" sx={{ alignItems: 'center' }}>
+          <Typography variant="caption" sx={{ ml: 2 }}>もっと見る</Typography>
+        </Link>
       </Box>
       <Box sx={{ mx: 2 }}>
         {children}

@@ -62,7 +62,7 @@ export default function Home() {
         <SearchAppBar />
         <ImageSlider />
         <ItemLayout title="セール">
-          <HorizontalScrollView products={products.slice(0, 3)}/>
+          <HorizontalScrollView products={products}/>
         </ItemLayout>
         <ItemLayout title="おすすめ">
           <HorizontalScrollView products={products.slice(3, 5)}/>

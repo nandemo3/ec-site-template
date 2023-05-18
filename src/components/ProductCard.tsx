@@ -11,7 +11,7 @@ export interface ProductType {
 
 function ProductCard({ name, description, price, imagePath, favorite }: ProductType) {
   return (
-    <Card sx={{ maxWidth: 345, boxShadow: 0 }}>
+    <Card sx={{ maxWidth: 270, boxShadow: 0 }}>
       <CardMedia
         component="img"
         height="194"

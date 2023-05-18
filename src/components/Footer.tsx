@@ -1,5 +1,8 @@
 import { Box, Grid, Link, Typography, styled } from '@mui/material'
 
+import MissionIcon from './icon/MissionIcon'
+import ServiceIcon from './icon/ServiceIcon'
+
 const StyledTypography = styled(Typography)({
   color: '#FFF',
   marginTop: '1vh',
@@ -9,6 +12,13 @@ const Title = styled(StyledTypography)({
   marginBottom: '1vh',
 })
 
+const CopyRight = styled(Typography)({
+  color: '#FFF',
+  alignItems: 'flex-end',
+  display: 'flex',
+  marginRight: 0,
+})
+
 const StyledLink = styled(Link)({
   color: '#FFF',
 })
@@ -16,49 +26,76 @@ const StyledLink = styled(Link)({
 function Footer() {
   return (
   <footer>
-    <Box sx={{ px: 20, height: '50vh', backgroundColor: '#000' }}>
-      <Grid container sx={{ pt: 7 }}>
-        <Grid container item xs={3} direction="column">
-          <Title variant="subtitle1">サービス</Title>
-          <StyledLink href="#" underline="hover">
-            <StyledTypography variant="body2">利用規約</StyledTypography>
-          </StyledLink>
-          <StyledLink href="#" underline="hover">
-            <StyledTypography variant="body2">プライバシーポリシー</StyledTypography>
-          </StyledLink>
-          <StyledLink href="#" underline="hover">
-            <StyledTypography variant="body2">配送について</StyledTypography>
-          </StyledLink>
-          <StyledLink href="#" underline="hover">
-            <StyledTypography variant="body2">返品・交換について</StyledTypography>
-          </StyledLink>
+    <Box sx={{ bgcolor: '#222' }}>
+      <Box sx={{ height: '50vh', px: 20 }}>
+        <Grid container sx={{ pt: 7 }}>
+          <Grid container item xs={3} direction="column">
+            <Title variant="subtitle1">サービス</Title>
+            <StyledLink href="#" underline="hover">
+              <StyledTypography variant="body2">利用規約</StyledTypography>
+            </StyledLink>
+            <StyledLink href="#" underline="hover">
+              <StyledTypography variant="body2">プライバシーポリシー</StyledTypography>
+            </StyledLink>
+            <StyledLink href="#" underline="hover">
+              <StyledTypography variant="body2">配送について</StyledTypography>
+            </StyledLink>
+            <StyledLink href="#" underline="hover">
+              <StyledTypography variant="body2">返品・交換について</StyledTypography>
+            </StyledLink>
+          </Grid>
+          <Grid item xs={3}>
+            <Title variant='subtitle1'>カテゴリー</Title>
+            <StyledLink href="#" underline="hover">
+              <StyledTypography variant="body2">家電</StyledTypography>
+            </StyledLink>
+            <StyledLink href="#" underline="hover">
+              <StyledTypography variant="body2">ファッション</StyledTypography>
+            </StyledLink>
+            <StyledLink href="#" underline="hover">
+              <StyledTypography variant="body2">食品</StyledTypography>
+            </StyledLink>
+            <StyledLink href="#" underline="hover">
+              <StyledTypography variant="body2">書籍</StyledTypography>
+            </StyledLink>
+          </Grid>
+          <Grid item xs={3}>
+            <Title variant='subtitle1'>サポート</Title>
+            <StyledLink href="#" underline="hover">
+              <StyledTypography variant="body2">お問い合わせ</StyledTypography>
+            </StyledLink>
+            <StyledLink href="#" underline="hover">
+              <StyledTypography variant="body2">ヘルプ</StyledTypography>
+            </StyledLink>
+            <StyledLink href="#" underline="hover">
+              <StyledTypography variant="body2">よくある質問</StyledTypography>
+            </StyledLink>
+          </Grid>
         </Grid>
-        <Grid item xs={3}>
-          <Title variant='subtitle1'>カテゴリー</Title>
-          <StyledLink href="#" underline="hover">
-            <StyledTypography variant="body2">家電</StyledTypography>
-          </StyledLink>
-          <StyledLink href="#" underline="hover">
-            <StyledTypography variant="body2">ファッション</StyledTypography>
-          </StyledLink>
-          <StyledLink href="#" underline="hover">
-            <StyledTypography variant="body2">食品</StyledTypography>
-          </StyledLink>
-          <StyledLink href="#" underline="hover">
-            <StyledTypography variant="body2">書籍</StyledTypography>
-          </StyledLink>
-        </Grid>
-        <Grid item xs={3}>
-          <Title variant='subtitle1'>サポート</Title>
-          <StyledLink href="#" underline="hover">
-            <StyledTypography variant="body2">お問い合わせ</StyledTypography>
-          </StyledLink>
-          <StyledLink href="#" underline="hover">
-            <StyledTypography variant="body2">ヘルプ</StyledTypography>
-          </StyledLink>
-          <StyledLink href="#" underline="hover">
-            <StyledTypography variant="body2">よくある質問</StyledTypography>
-          </StyledLink>
+      </Box>
+      <Grid container
+        direction="row"
+        justifyContent="space-between"
+        alignItems="center"
+        sx={{ paddingBottom: 1, px: 4 }}
+      >
+        <Link href="https://activ8.co.jp/" sx={{ color: '#FFF' }}>
+          <Grid container item
+            direction="row"
+            justifyContent="flex-start"
+            alignItems="center"
+            spacing={3}
+          >
+            <Grid item>
+              <ServiceIcon fill="white" />
+            </Grid>
+            <Grid item>
+              <MissionIcon fill="white" />
+            </Grid>
+          </Grid>
+        </Link>
+        <Grid item>
+          <CopyRight variant="caption" >©️Activ8.inc 2023</CopyRight>
         </Grid>
       </Grid>
     </Box>
