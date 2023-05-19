@@ -14,9 +14,8 @@ const Title = styled(StyledTypography)({
 
 const CopyRight = styled(Typography)({
   color: '#FFF',
-  alignItems: 'flex-end',
-  display: 'flex',
-  marginRight: 0,
+  textAlign: 'center',
+  paddingBottom: '1vh',
 })
 
 const StyledLink = styled(Link)({
@@ -73,31 +72,25 @@ function Footer() {
           </Grid>
         </Grid>
       </Box>
-      <Grid container
-        direction="row"
-        justifyContent="space-between"
-        alignItems="center"
-        sx={{ paddingBottom: 1, px: 4 }}
-      >
-        <Link href="https://activ8.co.jp/" sx={{ color: '#FFF' }}>
-          <Grid container item
-            direction="row"
-            justifyContent="flex-start"
-            alignItems="center"
-            spacing={3}
-          >
-            <Grid item>
-              <ServiceIcon fill="white" />
-            </Grid>
-            <Grid item>
-              <MissionIcon fill="white" />
-            </Grid>
+      <StyledLink href="https://activ8.co.jp/">
+        <Grid container item
+          direction="row"
+          justifyContent="flex-start"
+          alignItems="center"
+          spacing={3}
+          sx={{ ml: 1 }}
+        >
+          <Grid item>
+            <ServiceIcon fill="white" />
           </Grid>
-        </Link>
-        <Grid item>
-          <CopyRight variant="caption" >©️Activ8.inc 2023</CopyRight>
+          <Grid item>
+            <MissionIcon fill="white" />
+          </Grid>
         </Grid>
-      </Grid>
+      </StyledLink>
+      <CopyRight variant="body2" >
+        &copy; {new Date().getFullYear()} Activ8.Inc All rights reserved.
+      </CopyRight>
     </Box>
   </footer>
   )
