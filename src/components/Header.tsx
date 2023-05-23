@@ -39,56 +39,78 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export default function SearchAppBar() {
   return (
-    <Box sx={{ flexGrow: 1, bgcolor: '#FFF' }}>
+    <Box sx={{ bgcolor: '#FFF' }}>
       <Toolbar>
-        <Link href="/"
-          aria-label="open drawer"
-          sx={{ mr: 2 }}
-        >
-          <ServiceIcon fill="black"/>
-        </Link>
-        <Search
-          sx={{ flexGrow: 1, display: { xs: 'none', sm: 'flex' } }}
-        >
-          <StyledInputBase
-            placeholder="キーワードを入力"
-            inputProps={{ 'aria-label': 'search' }}
-          />
-          <IconButton
-            size="small"
+        <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <Link href="/"
+            aria-label="open drawer"
+            sx={{ mr: 1, mt: 1 }}
           >
-            <SearchIcon />
-          </IconButton>
-        </Search>
-        <Box sx={{ marginLeft: 4 }}>
-          <IconButton
-            size="small"
-            sx={{ flexDirection: 'column' }}
+            <ServiceIcon fill="black"/>
+          </Link>
+          <Search
+            sx={{ flexGrow: 1, display: 'flex' }}
           >
-            <ShoppingCartIcon />
-            <Typography variant="caption">カート</Typography>
-          </IconButton>
-          <IconButton
-            size="small"
-            sx={{ flexDirection: 'column' }}
+            <StyledInputBase
+              placeholder="キーワードを入力"
+              inputProps={{ 'aria-label': 'search' }}
+            />
+            <IconButton
+              size="small"
+            >
+              <SearchIcon />
+            </IconButton>
+          </Search>
+          <Box sx={{ marginLeft: 4 }}>
+            <IconButton
+              size="small"
+              sx={{ flexDirection: 'column' }}
+            >
+              <ShoppingCartIcon />
+              <Typography variant="caption">カート</Typography>
+            </IconButton>
+            <IconButton
+              size="small"
+              sx={{ flexDirection: 'column' }}
+            >
+              <ReplayIcon />
+              <Typography variant="caption">注文履歴</Typography>
+            </IconButton>
+            <IconButton
+              size="small"
+              sx={{ flexDirection: 'column' }}
+            >
+              <PersonIcon />
+              <Typography variant="caption">アカウント</Typography>
+            </IconButton>
+            <IconButton
+              size="small"
+              sx={{ flexDirection: 'column' }}
+            >
+              <LogoutIcon />
+              <Typography variant="caption">ログアウト</Typography>
+            </IconButton>
+          </Box>
+        </Box>
+        <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          <Link href="/"
+            aria-label="open drawer"
+            sx={{ mr: 1, mt: 1 }}
           >
-            <ReplayIcon />
-            <Typography variant="caption">注文履歴</Typography>
-          </IconButton>
-          <IconButton
-            size="small"
-            sx={{ flexDirection: 'column' }}
-          >
-            <PersonIcon />
-            <Typography variant="caption">アカウント</Typography>
-          </IconButton>
-          <IconButton
-            size="small"
-            sx={{ flexDirection: 'column' }}
-          >
-            <LogoutIcon />
-            <Typography variant="caption">ログアウト</Typography>
-          </IconButton>
+            <ServiceIcon fill="black"/>
+          </Link>
+          <Box sx={{ marginLeft: 'auto', mt: 1 }}>
+            <IconButton
+              size="small"
+            >
+              <SearchIcon />
+            </IconButton>
+            <IconButton
+              size="small"
+            >
+              <ShoppingCartIcon />
+            </IconButton>
+          </Box>
         </Box>
       </Toolbar>
       <NewsBar title="【重要】セール開催のお知らせ！" />

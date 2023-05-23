@@ -11,7 +11,7 @@ const FavoriteCount: FC<FavoriteCountProps> = ({ count }) => {
   return (
     <>
       <IconButton aria-label="add to favorites">
-            <StarOutlineIcon fontSize='small'/>
+        <StarOutlineIcon fontSize='small'/>
       </IconButton>
       <Typography variant="caption" color="text.secondary">
         {count}

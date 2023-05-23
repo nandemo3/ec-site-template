@@ -112,10 +112,10 @@ function ImageSlider() {
   return (
     <>
       <Fader ref={sliderRef}>
-        {images.map((src, idx) => (
+        {images.map((src, index) => (
           <FaderSlide
-            key={idx}
-            style={{ opacity: opacities[idx] }}
+            key={index}
+            style={{ opacity: opacities[index] }}
           >
             <FaderImage src={src} alt=""/>
           </FaderSlide>
@@ -154,14 +154,14 @@ function ImageSlider() {
       )}
       {loaded && instanceRef.current && (
         <Dots>
-          {images.map((_, idx) => {
+          {images.map((_, index) => {
             return (
               <Dot
-                key={idx}
+                key={index}
                 onClick={() => {
-                  instanceRef.current?.moveToIdx(idx)
+                  instanceRef.current?.moveToIdx(index)
                 }}
-                sx={currentSlide === idx ? { background: '#222' } : {}}
+                sx={currentSlide === index ? { background: '#222' } : {}}
               />
             )
           })}
