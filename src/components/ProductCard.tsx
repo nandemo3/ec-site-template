@@ -1,5 +1,8 @@
-import StarOutlineIcon from '@mui/icons-material/StarOutline'
-import { Box, Card, CardActions, CardContent, CardMedia, IconButton, Typography } from '@mui/material'
+import { Box, Card, CardActions, CardContent, CardMedia, Typography } from '@mui/material'
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+
+import FavoriteCount from './FavoriteCount'
 
 export interface ProductType {
   name: string
@@ -10,18 +13,34 @@ export interface ProductType {
 }
 
 function ProductCard({ name, description, price, imagePath, favorite }: ProductType) {
+  const router = useRouter()
+
+  const onClickDetail = () => {
+    router.push('/detail/1')
+  }
+
   return (
-    <Card sx={{ maxWidth: 270, boxShadow: 0 }}>
+    <Card sx={{ maxWidth: 270, boxShadow: 0 }} >
       <CardMedia
+        height={270}
+        width={270}
         component="img"
-        height="194"
         image={imagePath}
-        alt=""
+        onClick={onClickDetail}
+        sx={{
+          'objectFit': 'contain',
+          'bgcolor': '#EEE',
+          '&:hover': {
+            cursor: 'pointer',
+          },
+        }}
       />
       <CardContent>
-        <Typography variant="subtitle1" color="text.primary" noWrap>
-          {name}
-        </Typography>
+        <Link href="/detail/1">
+          <Typography variant="subtitle1" color="text.primary" noWrap>
+            {name}
+          </Typography>
+        </Link>
         <Box sx={{ height: 30 }}>
           <Typography variant="caption" color="text.secondary"
             sx={{
@@ -36,12 +55,7 @@ function ProductCard({ name, description, price, imagePath, favorite }: ProductT
         </Box>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <StarOutlineIcon fontSize='small'/>
-        </IconButton>
-        <Typography variant="caption" color="text.secondary">
-          {favorite}
-        </Typography>
+        <FavoriteCount count={favorite} />
         <Typography variant="body1" color="error.main" sx={{ marginLeft: 'auto' }}>
           {price}円
         </Typography>

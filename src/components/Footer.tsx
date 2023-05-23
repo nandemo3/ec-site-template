@@ -42,6 +42,9 @@ function Footer() {
             <StyledLink href="#" underline="hover">
               <StyledTypography variant="body2">返品・交換について</StyledTypography>
             </StyledLink>
+            <StyledLink href="#" underline="hover">
+              <StyledTypography variant="body2">特定商取引法に基づく表示</StyledTypography>
+            </StyledLink>
           </Grid>
           <Grid item xs={3}>
             <Title variant='subtitle1'>カテゴリー</Title>

@@ -4,10 +4,10 @@ import { ThemeProvider } from '@mui/material/styles'
 
 import Footer from '@/components/Footer'
 import SearchAppBar from '@/components/Header'
-import ImageSlider from '@/components/ImageSlider'
 import type { ProductType } from '@/components/ProductCard'
 import BaseLayout from '@/components/layout/BaseLayout'
-import HorizontalScrollView from '@/components/layout/HorizontalScrollView'
+import GridView from '@/components/layout/GridView'
+import ProductDetailView from '@/components/layout/ProductDetailView'
 import SectionTitleView from '@/components/layout/SectionTitleView'
 import theme from '@/utils/theme'
 
@@ -56,29 +56,19 @@ const products: ProductType[] = [
   },
 ]
 
-export default function Home() {
+export default function Detail() {
   return (
     <ThemeProvider theme={theme}>
       <main>
         <SearchAppBar />
-        <ImageSlider />
         <BaseLayout>
-          <SectionTitleView title="セール">
-            <HorizontalScrollView products={products}/>
-          </SectionTitleView>
-          <SectionTitleView title="おすすめ">
-            <HorizontalScrollView products={products.slice(3, 5)}/>
-          </SectionTitleView>
-          <SectionTitleView title="新着アイテム">
-            <HorizontalScrollView products={products.slice(1, 4)}/>
-          </SectionTitleView>
-          <SectionTitleView title="最近チェックしたアイテム">
-            <HorizontalScrollView products={products.slice(2, 3)}/>
+          <ProductDetailView />
+          <SectionTitleView title="関連アイテム">
+            <GridView products={products}/>
           </SectionTitleView>
         </BaseLayout>
         <Footer />
       </main>
     </ThemeProvider>
-
   )
 }
