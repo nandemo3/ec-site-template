@@ -4,11 +4,11 @@ import Grid from '@mui/material/Grid'
 
 import ProductCard from '../ProductCard'
 
-interface GridViewType {
+interface GridItemLayoutType {
   products: ProductType[]
 }
 
-function GridView({ products }: GridViewType) {
+function GridItemLayout({ products }: GridItemLayoutType) {
   return (
     <Grid sx={{ flexGrow: 1 }} container>
       {products.map((product, index) => {
@@ -22,4 +22,4 @@ function GridView({ products }: GridViewType) {
   )
 }
 
-export default GridView
+export default GridItemLayout

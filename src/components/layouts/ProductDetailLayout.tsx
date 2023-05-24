@@ -5,10 +5,10 @@ import NavigateNextIcon from '@mui/icons-material/NavigateNext'
 import ShareIcon from '@mui/icons-material/Share'
 import { Box, Button, Divider, Grid, IconButton, Link, Typography, styled } from '@mui/material'
 
-import FavoriteCount from '../FavoriteCount'
 import BasicBreadcrumbs from '../UI/BasicBreadcrumbs'
+import FavoriteCount from '../UI/FavoriteCount'
 
-interface ProductDetailViewProps {}
+interface ProductDetailLayoutProps {}
 
 const images = [
   '/images/image1.png',
@@ -29,7 +29,7 @@ const SquareImage = styled('div') ({
   backgroundRepeat: 'no-repeat',
 })
 
-const ProductDetailView: FC<ProductDetailViewProps> = () => {
+const ProductDetailLayout: FC<ProductDetailLayoutProps> = () => {
   return (
     <>
       <Box sx={{ my: 8, display: { xs: 'none', md: 'block' } }} />
@@ -135,4 +135,4 @@ function DetailItemLayout({ title, children }: { title: string; children: ReactN
   </>
 }
 
-export default ProductDetailView
+export default ProductDetailLayout

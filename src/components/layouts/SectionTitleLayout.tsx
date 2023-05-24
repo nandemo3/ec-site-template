@@ -2,12 +2,12 @@ import type { FC, ReactNode } from 'react'
 
 import { Box, Link, Typography } from '@mui/material'
 
-interface SectionTitleViewProps {
+interface SectionTitleLayoutProps {
   title: string
   children?: ReactNode
 }
 
-const SectionTitleView: FC<SectionTitleViewProps> = ({ title, children }) => {
+const SectionTitleLayout: FC<SectionTitleLayoutProps> = ({ title, children }) => {
   return (
     <Box sx={{ my: 8 }}>
       <Box sx={{ my: 4, display: 'flex', alignItems: 'center' }}>
@@ -23,4 +23,4 @@ const SectionTitleView: FC<SectionTitleViewProps> = ({ title, children }) => {
   )
 }
 
-export default SectionTitleView
+export default SectionTitleLayout

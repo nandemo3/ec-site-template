@@ -2,7 +2,7 @@ import { Box, Card, CardActions, CardContent, CardMedia, Typography } from '@mui
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 
-import FavoriteCount from './FavoriteCount'
+import FavoriteCount from './UI/FavoriteCount'
 
 export interface ProductType {
   name: string

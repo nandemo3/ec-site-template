@@ -2,11 +2,11 @@ import type { ReactNode } from 'react'
 
 import Grid from '@mui/material/Grid'
 
-interface BaseLayoutProps {
+interface ResponsiveBaseLayoutProps {
   children: ReactNode
 }
 
-function BaseLayout({ children }: BaseLayoutProps) {
+function ResponsiveBaseLayout({ children }: ResponsiveBaseLayoutProps) {
   return (
     <Grid container direction="row">
       <Grid item sm={0} md={2} />
@@ -18,4 +18,4 @@ function BaseLayout({ children }: BaseLayoutProps) {
   )
 }
 
-export default BaseLayout
+export default ResponsiveBaseLayout

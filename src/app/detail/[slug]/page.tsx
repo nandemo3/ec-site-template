@@ -5,10 +5,10 @@ import { ThemeProvider } from '@mui/material/styles'
 import Footer from '@/components/Footer'
 import SearchAppBar from '@/components/Header'
 import type { ProductType } from '@/components/ProductCard'
-import BaseLayout from '@/components/layout/BaseLayout'
-import GridView from '@/components/layout/GridView'
-import ProductDetailView from '@/components/layout/ProductDetailView'
-import SectionTitleView from '@/components/layout/SectionTitleView'
+import GridItemLayout from '@/components/layouts/GridItemLayout'
+import ProductDetailLayout from '@/components/layouts/ProductDetailLayout'
+import ResponsiveBaseLayout from '@/components/layouts/ResponsiveBaseLayout'
+import SectionTitleLayout from '@/components/layouts/SectionTitleLayout'
 import theme from '@/utils/theme'
 
 const products: ProductType[] = [
@@ -61,12 +61,12 @@ export default function Detail() {
     <ThemeProvider theme={theme}>
       <main>
         <SearchAppBar />
-        <BaseLayout>
-          <ProductDetailView />
-          <SectionTitleView title="関連アイテム">
-            <GridView products={products}/>
-          </SectionTitleView>
-        </BaseLayout>
+        <ResponsiveBaseLayout>
+          <ProductDetailLayout />
+          <SectionTitleLayout title="関連アイテム">
+            <GridItemLayout products={products}/>
+          </SectionTitleLayout>
+        </ResponsiveBaseLayout>
         <Footer />
       </main>
     </ThemeProvider>

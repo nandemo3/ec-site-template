@@ -6,9 +6,9 @@ import Footer from '@/components/Footer'
 import SearchAppBar from '@/components/Header'
 import ImageSlider from '@/components/ImageSlider'
 import type { ProductType } from '@/components/ProductCard'
-import BaseLayout from '@/components/layout/BaseLayout'
-import HorizontalScrollView from '@/components/layout/HorizontalScrollView'
-import SectionTitleView from '@/components/layout/SectionTitleView'
+import ResponsiveBaseLayout from '@/components/layouts/ResponsiveBaseLayout'
+import SectionTitleLayout from '@/components/layouts/SectionTitleLayout'
+import HorizontalScrollView from '@/components/views/HorizontalScrollView'
 import theme from '@/utils/theme'
 
 const products: ProductType[] = [
@@ -62,20 +62,20 @@ export default function Home() {
       <main>
         <SearchAppBar />
         <ImageSlider />
-        <BaseLayout>
-          <SectionTitleView title="セール">
+        <ResponsiveBaseLayout>
+          <SectionTitleLayout title="セール">
             <HorizontalScrollView products={products}/>
-          </SectionTitleView>
-          <SectionTitleView title="おすすめ">
+          </SectionTitleLayout>
+          <SectionTitleLayout title="おすすめ">
             <HorizontalScrollView products={products.slice(3, 5)}/>
-          </SectionTitleView>
-          <SectionTitleView title="新着アイテム">
+          </SectionTitleLayout>
+          <SectionTitleLayout title="新着アイテム">
             <HorizontalScrollView products={products.slice(1, 4)}/>
-          </SectionTitleView>
-          <SectionTitleView title="最近チェックしたアイテム">
+          </SectionTitleLayout>
+          <SectionTitleLayout title="最近チェックしたアイテム">
             <HorizontalScrollView products={products.slice(2, 3)}/>
-          </SectionTitleView>
-        </BaseLayout>
+          </SectionTitleLayout>
+        </ResponsiveBaseLayout>
         <Footer />
       </main>
     </ThemeProvider>
