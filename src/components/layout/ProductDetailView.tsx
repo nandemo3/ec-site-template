@@ -1,8 +1,9 @@
 import type { FC, ReactNode } from 'react'
 
 import FiberManualRecordOutlinedIcon from '@mui/icons-material/FiberManualRecordOutlined'
+import NavigateNextIcon from '@mui/icons-material/NavigateNext'
 import ShareIcon from '@mui/icons-material/Share'
-import { Box, Button, Grid, IconButton, Typography, styled } from '@mui/material'
+import { Box, Button, Divider, Grid, IconButton, Link, Typography, styled } from '@mui/material'
 
 import FavoriteCount from '../FavoriteCount'
 import BasicBreadcrumbs from '../UI/BasicBreadcrumbs'
@@ -74,6 +75,7 @@ const ProductDetailView: FC<ProductDetailViewProps> = () => {
             </Box>
             <Box sx={{ mt: 4, display: { md: 'none' } }}>
               <ProductExplanation />
+              <Divider light sx={{ mt: 4 }}/>
             </Box>
             <Box sx={{ mt: 4 }}>
               <DetailItemLayout title="発送について">
@@ -83,9 +85,10 @@ const ProductDetailView: FC<ProductDetailViewProps> = () => {
                 <Typography variant='body2' color="text.secondary">入金が確認された後に「購入履歴」からいつでもダウンロードできるようになります。</Typography>
               </DetailItemLayout>
             </Box>
+            <Divider light sx={{ mt: 4 }}/>
             <Box sx={{ mt: 4 }}>
-              <ItemTitle text="取引の流れ" />
-              <ItemTitle text="お支払い方法" />
+              <ItemTitle text="取引の流れ" url="/"/>
+              <ItemTitle text="お支払い方法" url="/"/>
             </Box>
 
           </Box>
@@ -103,11 +106,23 @@ function ProductExplanation() {
 </DetailItemLayout>
 }
 
-function ItemTitle({ text }: { text: string }) {
-  return <Box flexDirection="row" display="flex" alignItems="center" sx={{ mb: 1 }}>
-    <FiberManualRecordOutlinedIcon fontSize='small'/>
-    <Typography variant="subtitle2" fontWeight="bold">{text}</Typography>
-  </Box>
+function ItemTitle({ text, url }: { text: string; url?: string }) {
+  return (
+    <Box flexDirection="row" display="flex" alignItems="center" sx={{ mb: 1 }}>
+      <FiberManualRecordOutlinedIcon fontSize='small'/>
+      {url
+        ? (
+          <>
+            <Link href={url} underline="hover" color="inherit">
+              <Typography variant="subtitle2" fontWeight="bold">{text}</Typography>
+            </Link>
+            <NavigateNextIcon fontSize="small" />
+          </>
+          )
+        : <Typography variant="subtitle2" fontWeight="bold">{text}</Typography>
+      }
+    </Box>
+  )
 }
 
 function DetailItemLayout({ title, children }: { title: string; children: ReactNode }) {

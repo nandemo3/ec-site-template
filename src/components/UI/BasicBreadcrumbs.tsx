@@ -20,7 +20,7 @@ export default function BasicBreadcrumbs({ breadcrumbs }: BasicBreadcrumbsType) 
       <Breadcrumbs aria-label="breadcrumb" separator={<NavigateNextIcon fontSize="small" />}>
         {breadcrumbs.map((breadcrumb, index) => {
           return (
-          <Link key={index}underline="hover" color="inherit" href={breadcrumb.url}>
+          <Link key={index} underline="hover" color="inherit" href={breadcrumb.url}>
             <Typography variant='caption' fontWeight="bold">
               {breadcrumb.name}
             </Typography>
