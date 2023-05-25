@@ -11,6 +11,7 @@ const SectionTitleLayout: FC<SectionTitleLayoutProps> = ({ title, children }) =>
   return (
     <Box sx={{ my: 8 }}>
       <Box sx={{ my: 4, display: 'flex', alignItems: 'center' }}>
+        <Box sx={{ ml: 4, display: { md: 'none' } }} />
         <Typography variant="h5" sx={{ color: '#222' }}>{title}</Typography>
         <Link href="/" underline="hover" sx={{ alignItems: 'center' }}>
           <Typography variant="caption" sx={{ ml: 2 }}>もっと見る</Typography>

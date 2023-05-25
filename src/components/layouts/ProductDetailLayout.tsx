@@ -1,3 +1,4 @@
+import type { ProductType } from '../ProductCard'
 import type { FC, ReactNode } from 'react'
 
 import FiberManualRecordOutlinedIcon from '@mui/icons-material/FiberManualRecordOutlined'
@@ -7,8 +8,6 @@ import { Box, Button, Divider, Grid, IconButton, Link, Typography, styled } from
 
 import BasicBreadcrumbs from '../UI/BasicBreadcrumbs'
 import FavoriteCount from '../UI/FavoriteCount'
-
-interface ProductDetailLayoutProps {}
 
 const images = [
   '/images/image1.png',
@@ -29,7 +28,11 @@ const SquareImage = styled('div') ({
   backgroundRepeat: 'no-repeat',
 })
 
-const ProductDetailLayout: FC<ProductDetailLayoutProps> = () => {
+const ProductDetailLayout: FC<ProductType> = ({ name, description, price, imagePath, favorite, categories }) => {
+  const breadcrumbs = categories.map((category) => {
+    return { name: category, url: '/' }
+  })
+
   return (
     <>
       <Box sx={{ my: 8, display: { xs: 'none', md: 'block' } }} />
@@ -37,7 +40,7 @@ const ProductDetailLayout: FC<ProductDetailLayoutProps> = () => {
         direction="row" spacing={2}
       >
         <Grid item xs={12} md={6}>
-          <SquareImage style={{ backgroundImage: 'url(/images/image1.png)' }} />
+          <SquareImage style={{ backgroundImage: `url(${imagePath})` }} />
           {/* <ImageList sx={{ width: 500, height: 450 }} cols={1} rowHeight={164}>
             {images.map(item => (
               <ImageListItem key={item}>
@@ -50,20 +53,20 @@ const ProductDetailLayout: FC<ProductDetailLayoutProps> = () => {
             ))}
           </ImageList> */}
           <Box sx={{ mt: 4, display: { xs: 'none', md: 'block' } }}>
-            <ProductExplanation />
+            <ProductExplanation text={description}/>
           </Box>
         </Grid>
         <Grid item xs={12} md={6}>
           <Box sx={{ px: 4 }}>
-            <BasicBreadcrumbs breadcrumbs={[{ name: '家電・カメラ・AV機器', url: '/' }, { name: 'イヤホン', url: '/' }]} />
-            <Typography variant="h6" fontWeight="bold" sx={{ my: 2 }}>アクティブフィットワイヤレスイヤフォン</Typography>
+            <BasicBreadcrumbs breadcrumbs={breadcrumbs} />
+            <Typography variant="h6" fontWeight="bold" sx={{ my: 2 }}>{name}</Typography>
             <Box display="flex" flexDirection="row">
-              <Typography variant='h5' fontWeight="bold" color="error">7,980円</Typography>
+              <Typography variant='h5' fontWeight="bold" color="error">{price.toLocaleString()}円</Typography>
               <Typography variant='caption' sx={{ ml: 1, display: 'flex', alignSelf: 'end' }}>{'(税込)'}</Typography>
             </Box>
             <Typography variant='body2' sx={{ mt: 0.5 }}>{'＋送料(550円) 一律'}</Typography>
             <Box sx={{ mt: 2, mb: 1 }}>
-              <FavoriteCount count={23} />
+              <FavoriteCount count={favorite} />
               <IconButton
                 size="small"
               >
@@ -74,7 +77,7 @@ const ProductDetailLayout: FC<ProductDetailLayoutProps> = () => {
               <Button variant="contained" color="primary" sx={{ flexGrow: 1 }}>カートに入れる</Button>
             </Box>
             <Box sx={{ mt: 4, display: { md: 'none' } }}>
-              <ProductExplanation />
+              <ProductExplanation text={description} />
               <Divider light sx={{ mt: 4 }}/>
             </Box>
             <Box sx={{ mt: 4 }}>
@@ -98,10 +101,10 @@ const ProductDetailLayout: FC<ProductDetailLayoutProps> = () => {
   )
 }
 
-function ProductExplanation() {
+function ProductExplanation({ text }: { text: string }) {
   return <DetailItemLayout title="商品について">
   <Typography variant="body2" >
-  アクティブフィットワイヤレスイヤフォンは、高品質なサウンドと快適なフィット感を提供する最新のスポーツ用イヤフォンです。防水性能を備え、ジムでのワークアウトやアウトドアでの活動に最適です。また、ワイヤレスデザインにより、邪魔なケーブルの心配なく自由に動けます。
+  {text}
   </Typography>
 </DetailItemLayout>
 }

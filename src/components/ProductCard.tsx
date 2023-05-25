@@ -5,18 +5,20 @@ import { useRouter } from 'next/navigation'
 import FavoriteCount from './UI/FavoriteCount'
 
 export interface ProductType {
+  id: number
   name: string
   description: string
   price: number
   imagePath: string
   favorite: number
+  categories: string[]
 }
 
-function ProductCard({ name, description, price, imagePath, favorite }: ProductType) {
+function ProductCard({ id, name, description, price, imagePath, favorite }: ProductType) {
   const router = useRouter()
 
-  const onClickDetail = () => {
-    router.push('/detail/1')
+  const onClickDetail = (id: number) => {
+    router.push(`/detail/${id}`)
   }
 
   return (
@@ -26,7 +28,7 @@ function ProductCard({ name, description, price, imagePath, favorite }: ProductT
         width={270}
         component="img"
         image={imagePath}
-        onClick={onClickDetail}
+        onClick={() => onClickDetail(id)}
         sx={{
           'objectFit': 'contain',
           'bgcolor': '#EEE',
@@ -36,7 +38,7 @@ function ProductCard({ name, description, price, imagePath, favorite }: ProductT
         }}
       />
       <CardContent>
-        <Link href="/detail/1">
+        <Link href={`/detail/${id}`}>
           <Typography variant="subtitle1" color="text.primary" noWrap>
             {name}
           </Typography>
@@ -57,7 +59,7 @@ function ProductCard({ name, description, price, imagePath, favorite }: ProductT
       <CardActions disableSpacing>
         <FavoriteCount count={favorite} />
         <Typography variant="body1" color="error.main" sx={{ marginLeft: 'auto' }}>
-          {price}円
+          {price.toLocaleString()}円
         </Typography>
       </CardActions>
     </Card>

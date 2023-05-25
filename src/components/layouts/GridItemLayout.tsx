@@ -10,10 +10,10 @@ interface GridItemLayoutType {
 
 function GridItemLayout({ products }: GridItemLayoutType) {
   return (
-    <Grid sx={{ flexGrow: 1 }} container>
+    <Grid container columnSpacing={{ xs: 0, md: 2 }}>
       {products.map((product, index) => {
         return (
-          <Grid item key={index} sx={{ pr: 2 }}>
+          <Grid item key={index} xs={4}>
             <ProductCard {...product}/>
           </Grid>
         )
