@@ -1,6 +1,5 @@
 import { Box, Grid, Link, Typography, styled } from '@mui/material'
 
-import MissionIcon from './icon/MissionIcon'
 import ServiceIcon from './icon/ServiceIcon'
 
 const StyledTypography = styled(Typography)({
@@ -75,7 +74,7 @@ function Footer() {
           </Grid>
         </Grid>
       </Box>
-      <StyledLink href="https://activ8.co.jp/">
+      <StyledLink href="/">
         <Grid container item
           direction="row"
           justifyContent="flex-start"
@@ -86,13 +85,10 @@ function Footer() {
           <Grid item>
             <ServiceIcon fill="white" />
           </Grid>
-          <Grid item>
-            <MissionIcon fill="white" />
-          </Grid>
         </Grid>
       </StyledLink>
       <CopyRight variant="body2" >
-        &copy; {new Date().getFullYear()} Activ8.Inc All rights reserved.
+        &copy; {new Date().getFullYear()} MYEC.Inc All rights reserved.
       </CopyRight>
     </Box>
   </footer>
